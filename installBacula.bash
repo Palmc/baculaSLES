@@ -20,7 +20,8 @@ zypper in -y gcc-c++ readline-devel zlib-devel lzo-devel libacl-devel mt_st mtx 
 
 chown -R root:root /usr/src/bacula
 cd /usr/src/bacula/
-./configure --with-readline=/usr/include/readline \
+./configure --prefix=/etc/bacula \
+--with-readline=/usr/include/readline \
 --disable-conio \
 --bindir=/usr/bin \
 --sbindir=/usr/sbin \
