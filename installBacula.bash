@@ -9,12 +9,12 @@ bacula_ver=9.2.2
 #Directorio en el que se guardan los backups
 backup_dir=/mnt/backup
 
-mkdir $backup_dir
+mkdir -p $backup_dir
 
 #wget https://sourceforge.net/projects/bacula/files/latest/download
 wget -O bacula.tar.gz https://sourceforge.net/projects/bacula/files/bacula/$bacula_ver/bacula-$bacula_ver.tar.gz/download
 
-mkdir /usr/src/bacula
+mkdir -p /usr/src/bacula
 tar xzvf bacula.tar.gz -C /usr/src/bacula --strip-components 1
 zypper in -y gcc-c++ readline-devel zlib-devel lzo-devel libacl-devel mt_st mtx postfix libopenssl-devel postgresql96-devel postgresql96-server
 
