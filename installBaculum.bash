@@ -73,7 +73,8 @@ sed -i 's/\/var\/log\/httpd/\/var\/log\/apache2/g' /etc/apache2/conf.d/baculum-a
 
 ### Cambiamos permisos ###
 chown -R wwwrun:www /srv/www/htdocs/baculum
-
+chmod -R 775 /etc/bacula/
+chown -R wwwrun:root /etc/bacula
 
 #Delete .htaccess
 #find /srv/www/htdocs/baculum -name .htaccess > /tmp/htaccess.txt
@@ -91,8 +92,6 @@ ln -s /etc/bacula/etc/* /etc/bacula/
 ### Iniciamos y habilitamos el servicio de apache
 systemctl start apache2; systemctl enable apache2
 
-
-
 echo -e "\n############################################"
 echo "###############  FINISHED  #################"
 echo "############################################"
@@ -104,5 +103,4 @@ echo -e "\nAnd then configure the web interface here: \e[92mhttp://$ip:9095\e[0m
 #cd /etc/bacula/
 #       chown apache /sbin/bconsole
 #       chown apache /etc/bacula/bconsole.conf
-#chmod 775 /etc/bacula/
 
